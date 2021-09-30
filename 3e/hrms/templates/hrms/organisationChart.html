@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+ <!-- Datatable CSS -->
+        <link rel="stylesheet" href="{% static 'assets/plugins/treant/Treant.css' %}">
+        <!-- Datetimepicker CSS -->
+        <link rel="stylesheet" href="{% assets/custom/css/organisationChart.css' %}"> </head>
+{% endblock %}
+{% block content %}
+                        <!-- Page Title -->
+<h4 class="page-title">Organisation Chart</h4>
+<div class="chart" id="basic-example"></div>
+{% endblock %}
+{% block js %}
+<!-- Datatable JS -->
+        <script src="{% static 'assets/js/select2.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <script src="{% static 'assets/plugins/raphael/raphael.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/treant/Treant.js' %}"></script>
+        <script src="{% static 'assets/custom/js/organisationChart.js' %}"></script>
+<script>
+            new Treant(chart_config);
+        </script>
+{% endblock %}

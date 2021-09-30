@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'assets/css/datatables.min.css' %}">
+{% endblock %}
+{% block content %}
+<!-- Page Title -->
+<div class="row">
+    <div class="col">
+        <h4 class="page-title">Employee</h4>
+    </div>
+</div>
+<!-- /Page Title -->
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped custom-table exporttable">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Employee ID</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Department</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for emp in employees %}
+                <tr>
+                    <td>
+                        <h2 class="table-avatar">
+                            <a href="{% url 'profile' emp.pk %}" class="avatar"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
+                            <a href="profile/">{{ emp.first_name }} {{ emp.last_name }} <span>{{ emp.job_title }}</span></a>
+                        </h2>
+                    </td>
+                    <td>{{ emp.idstaff }}</td>
+                    <td><a href="mailto: {{ emp.email }}">{{ emp.email }}</a></td>
+                    <td>{{ emp.phone }}</td>
+                    <td>{{ emp.dept_name }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->
+
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/js/datatables.min.js' %}"></script>
+<script src="{% static 'assets/js/app.js' %}"></script>
+
+{% endblock %}

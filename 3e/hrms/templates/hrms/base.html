@@ -1,0 +1,24 @@
+{% extends "../../general.html" %}
+    {% load static %}
+    {% block css %}{% endblock %}
+{% block main_wrapper %}
+ <!-- Main Wrapper -->
+<div class="main-wrapper">
+
+    {% include "header.html" %}
+    {% include "sidebar.html" %}
+
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+
+        <!-- Page Content -->
+        <div class="content container-fluid">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <!-- /Page Wrapper -->
+
+</div>
+<!-- /Main Wrapper -->
+{% block main_wrapper %}
+{% block js %}{% endblock %}
